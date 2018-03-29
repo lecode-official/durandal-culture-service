@@ -1,4 +1,4 @@
-declare module 'Culture/CultureConfiguration' {
+declare module 'durandal-culture-service/CultureConfiguration' {
 	 class CultureConfiguration {
 	    /**
 	     * Gets or sets the fallback culture of the service.
@@ -16,7 +16,7 @@ declare module 'Culture/CultureConfiguration' {
 	export = CultureConfiguration;
 
 }
-declare module 'Culture/CultureDetectionMethod' {
+declare module 'durandal-culture-service/CultureDetectionMethod' {
 	 enum CultureDetectionMethod {
 	    /**
 	     * The culture is not detected yet.
@@ -34,16 +34,10 @@ declare module 'Culture/CultureDetectionMethod' {
 	export = CultureDetectionMethod;
 
 }
-
-/// <reference path="../../bower_components/DefinitelyTyped/i18next/i18next.d.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/jquery/jquery.d.ts" />
-/// <reference path="../../bower_components/DefinitelyTyped/durandal/durandal.d.ts" />
-/// <reference path="../../bower_components/typescript-globalization/build/typescript-globalization.d.ts" />
-declare module 'Culture/CultureService' {
-	/// <reference path="../Typings/References.d.ts" />
-	import CultureConfiguration = require("Culture/CultureConfiguration");
-	import CultureDetectionMethod = require("Culture/CultureDetectionMethod");
-	import CultureInfo = require("Globalization/CultureInfo"); class CultureService {
+declare module 'durandal-culture-service/CultureService' {
+	import CultureConfiguration = require("durandal-culture-service/CultureConfiguration");
+	import CultureDetectionMethod = require("durandal-culture-service/CultureDetectionMethod");
+	import CultureInfo = require("durandal-globalization/CultureInfo"); class CultureService {
 	    /**
 	     * Contains the default culture, which is used if the browser culture is not supported.
 	     */
@@ -85,7 +79,7 @@ declare module 'Culture/CultureService' {
 	export = CultureService;
 
 }
-declare module 'Culture/Localization' {
+declare module 'durandal-culture-service/Localization' {
 	 class Localization {
 	    /**
 	     * Gets the localization for the requested resource.

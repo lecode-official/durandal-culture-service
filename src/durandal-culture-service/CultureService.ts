@@ -3,12 +3,10 @@
 
 // #region Import Directives
 
-/// <reference path="../Typings/References.d.ts" />
-
 import binder = require("durandal/binder");
-import CultureConfiguration = require("Culture/CultureConfiguration");
-import CultureDetectionMethod = require("Culture/CultureDetectionMethod");
-import CultureInfo = require("Globalization/CultureInfo");
+import CultureConfiguration = require("durandal-culture-service/CultureConfiguration");
+import CultureDetectionMethod = require("durandal-culture-service/CultureDetectionMethod");
+import CultureInfo = require("durandal-globalization/CultureInfo");
 import i18next = require("i18next");
 import jquery = require("jquery");
 
@@ -54,7 +52,7 @@ class CultureService {
         if (!CultureService._defaultCulture) {
             CultureService._defaultCulture = CultureInfo.createSpecificCulture(CultureService.configuration.defaultCulture);
         }
-        
+
         // Returns the default culture
         return CultureService._defaultCulture;
     }
@@ -68,21 +66,21 @@ class CultureService {
         if (!CultureService._supportedCultures) {
             CultureService._supportedCultures = CultureService.configuration.supportedCultures.map(name => CultureInfo.createSpecificCulture(name));
         }
-        
+
         // Returns the supported cultures
         return CultureService._supportedCultures;
     }
-    
+
     /**
      * Gets the detection method that was used to set the current culture.
      */
     public static get detectionMethod(): CultureDetectionMethod {
-        
+
         // Initializes the detection method if it does not exist
         if (!CultureService._detectionMethod) {
             return CultureDetectionMethod.None;
         }
-        
+
         // Returns the detection method
         return CultureService._detectionMethod;
     }
@@ -146,15 +144,17 @@ class CultureService {
                 suffix: "}}"
             }
         });
-        
+
         // Signs up for the event that fires when view models are bound to their view
-        binder.binding = (viewModel, view) => jquery(view).find("[data-localization]").each((index, element) => jquery(element).text(i18next.t(jquery(element).data("localization"))));
-        
+        binder.binding = (viewModel, view) => jquery(view).find("[data-localization]").each((index, element) => {
+            jquery(element).text(i18next.t(jquery(element).data("localization")));
+        });
+
         // Gets the window in order to add variables to it
         var currentWindow: any = window;
 
         // Adds the localization function to the window, so that it can be used in knockout data bindings
-        currentWindow["localization"] = { get: (key: string, options: I18next.TranslationOptions) => i18next.t(key, options) };
+        currentWindow["localization"] = { get: (key: string, options: i18next.TranslationOptions) => i18next.t(key, options) };
 
         // Adds the current culture to the window, so that it can be used in knockout data bindings
         currentWindow["currentCulture"] = CultureInfo.currentCulture;

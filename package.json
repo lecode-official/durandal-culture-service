@@ -1,12 +1,12 @@
 {
-  "name": "typescript-culture-service",
-  "displayName": "TypeScript Culture Service",
+  "name": "durandal-culture-service",
+  "displayName": "Durandal Culture Service",
   "private": true,
   "version": "0.1.0",
   "description": "A simple library written in TypeScript for detecting culture specific routes as well as localization support in Durandal.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lecode-official/typescript-culture-service.git"
+    "url": "git+https://github.com/lecode-official/durandal-culture-service.git"
   },
   "keywords": [
     "Globalization",
@@ -19,17 +19,24 @@
   "author": "David Neumann & Lukas Rögner",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lecode-official/typescript-culture-service/issues"
+    "url": "https://github.com/lecode-official/durandal-culture-service/issues"
   },
-  "homepage": "https://github.com/lecode-official/typescript-culture-service#readme",
+  "homepage": "https://github.com/lecode-official/durandal-culture-service#readme",
+  "dependencies": {
+    "durandal": "2.2.0",
+    "i18next": "3.4.4",
+    "jquery": "~3.1.1",
+    "durandal-globalization": "https://github.com/lecode-official/durandal-globalization.git#v0.1.4"
+  },
   "devDependencies": {
-    "bower": "^1.7.9",
     "dts-generator": "2.0.0",
     "gulp": "^3.9.1",
-    "gulp-bower": "0.0.13",
     "gulp-clean": "^0.3.2",
     "gulp-typescript": "^3.0.1",
     "run-sequence": "1.2.2",
-    "typescript": "^2.0.3"
+    "typescript": "^2.0.3",
+    "@types/jquery": "3.3.1",
+    "@types/i18next": "8.4.3",
+    "@types/durandal": "2.1.36"
   }
 }

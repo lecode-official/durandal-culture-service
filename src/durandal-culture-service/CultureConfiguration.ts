@@ -1,5 +1,5 @@
 ﻿
-///<amd-module name='Culture/CultureConfiguration'/>
+///<amd-module name='durandal-culture-service/CultureConfiguration'/>
 
 /**
  * Represents the configuration of the culture service.

@@ -3,7 +3,6 @@
 
 var gulp = require("gulp");
 var dts = require("dts-generator");
-var bower = require("gulp-bower");
 var clean = require("gulp-clean");
 var runSequence = require("run-sequence");
 var typescript = require("gulp-typescript");
@@ -16,8 +15,7 @@ var paths = {
     sourcePath: "./src",
     sourceFiles: "./src/**/*.ts",
     buildPath: "./build",
-    typeScriptConfigurationFile: "./tsconfig.json",
-    bowerConfigurationFile: "./bower.json"
+    typeScriptConfigurationFile: "./tsconfig.json"
 };
 
 // Defines the default gulp task, which is execute when "gulp" is executed on the command line, it executes all other tasks needed to build the project
@@ -26,23 +24,17 @@ gulp.task("default", [
     "watch"
 ]);
 
-// Defines a gulp task, which continously watches the source files and rebuilds the project if anything has changed
+// Defines a gulp task, which continuously watches the source files and rebuilds the project if anything has changed
 gulp.task("watch", function() {
     gulp.watch(paths.sourceFiles, ["build:typescript"]);
-    gulp.watch(paths.bowerConfigurationFile, ["bower"]);
 });
 
 // Defines a gulp task, which builds the project
 gulp.task("build", function(callback) {
     runSequence(
-        ["bower", "clean"],
+        ["clean"],
         ["build:typescript", "build:typings"],
         callback);
-});
-
-// Defines a gulp task, which installs all bower components
-gulp.task("bower", function() {
-    return bower();
 });
 
 // Defines a gulp task, which cleans the build directory
@@ -52,7 +44,7 @@ gulp.task("clean", function() {
         .pipe(clean());
 });
 
-// Defins a gulp task, which compiles the TypeScript files
+// Defines a gulp task, which compiles the TypeScript files
 gulp.task("build:typescript", function() {
     return gulp
         .src(paths.sourceFiles)
@@ -61,10 +53,10 @@ gulp.task("build:typescript", function() {
         .pipe(gulp.dest(paths.buildPath));
 })
 
-// Defins a gulp task, which compiles the TypeScript definition files
+// Defines a gulp task, which compiles the TypeScript definition files
 gulp.task("build:typings", function() {
     dts.default({
         project: paths.basePath,
-        out: paths.buildPath + "/typescript-culture-service.d.ts"
+        out: paths.buildPath + "/durandal-culture-service.d.ts"
     });
 })

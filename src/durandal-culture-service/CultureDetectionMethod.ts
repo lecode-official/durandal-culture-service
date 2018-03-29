@@ -1,11 +1,11 @@
 ﻿
-///<amd-module name='Culture/CultureDetectionMethod'/>
+///<amd-module name='durandal-culture-service/CultureDetectionMethod'/>
 
 /**
  * Represents the detection method that was used to set the current culture.
  */
 enum CultureDetectionMethod {
-    
+
     /**
      * The culture is not detected yet.
      */
