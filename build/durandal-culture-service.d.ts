@@ -35,6 +35,7 @@ declare module 'durandal-culture-service/CultureDetectionMethod' {
 
 }
 declare module 'durandal-culture-service/CultureService' {
+	/// <reference types="durandal-globalization" />
 	import CultureConfiguration = require("durandal-culture-service/CultureConfiguration");
 	import CultureDetectionMethod = require("durandal-culture-service/CultureDetectionMethod");
 	import CultureInfo = require("durandal-globalization/CultureInfo"); class CultureService {

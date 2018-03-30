@@ -1,5 +1,5 @@
 ﻿
-///<amd-module name='Culture/Localization'/>
+///<amd-module name='durandal-culture-service/Localization'/>
 
 // #region Import Directives
 

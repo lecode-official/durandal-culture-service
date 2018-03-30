@@ -1,5 +1,6 @@
 ﻿
-///<amd-module name='Culture/CultureService'/>
+///<amd-module name='durandal-culture-service/CultureService'/>
+///<reference types="durandal-globalization" />
 
 // #region Import Directives
 

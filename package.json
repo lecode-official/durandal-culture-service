@@ -1,8 +1,7 @@
 {
   "name": "durandal-culture-service",
   "displayName": "Durandal Culture Service",
-  "private": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A simple library written in TypeScript for detecting culture specific routes as well as localization support in Durandal.",
   "repository": {
     "type": "git",
@@ -26,7 +25,10 @@
     "durandal": "2.2.0",
     "i18next": "3.4.4",
     "jquery": "~3.1.1",
-    "durandal-globalization": "https://github.com/lecode-official/durandal-globalization.git#v0.1.4"
+    "@types/jquery": "3.3.1",
+    "@types/i18next": "8.4.3",
+    "@types/durandal": "2.1.36",
+    "durandal-globalization": "https://github.com/lecode-official/durandal-globalization.git#v0.1.5"
   },
   "devDependencies": {
     "dts-generator": "2.0.0",
@@ -34,9 +36,8 @@
     "gulp-clean": "^0.3.2",
     "gulp-typescript": "^3.0.1",
     "run-sequence": "1.2.2",
-    "typescript": "^2.0.3",
-    "@types/jquery": "3.3.1",
-    "@types/i18next": "8.4.3",
-    "@types/durandal": "2.1.36"
-  }
+    "typescript": "^2.0.3"
+  },
+  "types": "./build/durandal-culture-service.d.ts",
+  "typings": "./build/durandal-culture-service.d.ts"
 }
